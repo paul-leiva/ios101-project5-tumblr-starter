@@ -9,7 +9,7 @@ import Nuke
 class ViewController: UIViewController, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         /// Return the number of rows for the table
-        return 20
+        return posts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -18,7 +18,9 @@ class ViewController: UIViewController, UITableViewDataSource {
         // Create the cell
         let cell = UITableViewCell()
         
-        
+        // Configure the cell and its elements (photo and caption)
+        /// Get the row where the cell will be placed using the `row` property from the `indexPath`
+        cell.textLabel?.text = "\(indexPath.row + 1)"
         
         return cell
     }
@@ -35,6 +37,10 @@ class ViewController: UIViewController, UITableViewDataSource {
 
     /// Setup TableView UI Outlet
     @IBOutlet weak var tableView: UITableView!
+    
+    // Add property to store the fetched Posts array
+    // Providing a default value of an empty array avoids having to deal with optionals
+    private var posts: [Post] = []
 
 
     func fetchPosts() {
@@ -66,7 +72,14 @@ class ViewController: UIViewController, UITableViewDataSource {
                     print("✅ We got \(posts.count) posts!")
                     for post in posts {
                         print("🍏 Summary: \(post.summary)")
+                        print("📷 Photo URLs: \(post.photos)")
                     }
+                    
+                    /// Store posts in the `posts` property on the ViewController (so we can access the data anywhere in the View Controller)
+                    self?.posts = posts
+                    
+                    /// Reload the data in the TableView with the fetched Posts
+                    self?.tableView.reloadData()
                 }
 
             } catch {
