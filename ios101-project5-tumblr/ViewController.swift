@@ -16,6 +16,8 @@ class ViewController: UIViewController {
         fetchPosts()
     }
 
+    /// Setup TableView UI Outlet
+    @IBOutlet weak var tableView: UITableView!
 
 
     func fetchPosts() {
