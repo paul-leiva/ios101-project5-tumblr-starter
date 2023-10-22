@@ -18,9 +18,22 @@ class ViewController: UIViewController, UITableViewDataSource {
         // Create the cell
         let cell = UITableViewCell()
         
-        // Configure the cell and its elements (photo and caption)
+        // Get the post associated with the TableView row
+        let post = posts[indexPath.row]
+        
+        /// Configure the cell and its elements (photo and caption)
+        // Unwrap the optional photo
+        if let photo = post.photos.first {
+            /// Set the URL
+            let photoURL = photo.originalSize.url
+            
+            // Load the photo in the ImageView with Nuke library
+            Nuke.loadImage(with: photoURL, into: cell.imageView!)
+        }
+        
+        
         /// Get the row where the cell will be placed using the `row` property from the `indexPath`
-        cell.textLabel?.text = "\(indexPath.row + 1)"
+        cell.textLabel?.text = "\(indexPath.row + 1)" + post.summary
         
         return cell
     }
