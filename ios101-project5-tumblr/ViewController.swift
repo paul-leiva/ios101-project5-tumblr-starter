@@ -34,7 +34,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         
         
         /// Get the row where the cell will be placed using the `row` property from the `indexPath`
-        cell.textLabel?.text = "\(indexPath.row + 1)" + post.summary
+        cell.postSummary.text = post.summary
         
         return cell
     }
