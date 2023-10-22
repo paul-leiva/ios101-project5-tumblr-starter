@@ -15,20 +15,21 @@ class ViewController: UIViewController, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         /// Create, configure and return a table view cell for the given row
         
-        // Create the cell
-        let cell = UITableViewCell()
+        /// Create the cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell
         
-        // Get the post associated with the TableView row
+        /// Get the post associated with the TableView row
         let post = posts[indexPath.row]
         
         /// Configure the cell and its elements (photo and caption)
-        // Unwrap the optional photo
+        
+        /// Unwrap the optional photo
         if let photo = post.photos.first {
             /// Set the URL
             let photoURL = photo.originalSize.url
             
-            // Load the photo in the ImageView with Nuke library
-            Nuke.loadImage(with: photoURL, into: cell.imageView!)
+            /// Load the photo in the ImageView with Nuke library
+            Nuke.loadImage(with: photoURL, into: cell.postImage)
         }
         
         
@@ -51,8 +52,8 @@ class ViewController: UIViewController, UITableViewDataSource {
     /// Setup TableView UI Outlet
     @IBOutlet weak var tableView: UITableView!
     
-    // Add property to store the fetched Posts array
-    // Providing a default value of an empty array avoids having to deal with optionals
+    /// Add property to store the fetched `Posts` array
+    /// Providing a default value of an empty array avoids having to deal with optionals
     private var posts: [Post] = []
 
 
