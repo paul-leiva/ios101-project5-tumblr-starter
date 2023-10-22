@@ -6,7 +6,23 @@
 import UIKit
 import Nuke
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        /// Return the number of rows for the table
+        return 20
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        /// Create, configure and return a table view cell for the given row
+        
+        // Create the cell
+        let cell = UITableViewCell()
+        
+        
+        
+        return cell
+    }
+    
 
 
     override func viewDidLoad() {
@@ -14,6 +30,7 @@ class ViewController: UIViewController {
 
         
         fetchPosts()
+        tableView.dataSource = self
     }
 
     /// Setup TableView UI Outlet
