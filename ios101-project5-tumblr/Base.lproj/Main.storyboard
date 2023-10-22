@@ -32,7 +32,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="145" height="213"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Caption" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pcd-Km-bJ9">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pcd-Km-bJ9">
                                                     <rect key="frame" x="153" y="11" width="220" height="191"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -42,8 +42,8 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="postCaption" destination="pcd-Km-bJ9" id="GYl-uh-kS6"/>
                                             <outlet property="postImage" destination="319-gy-06R" id="UX4-42-yMS"/>
+                                            <outlet property="postSummary" destination="pcd-Km-bJ9" id="mZU-XH-IA0"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
